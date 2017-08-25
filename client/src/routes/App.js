@@ -1,42 +1,24 @@
 import React, { Component } from 'react';
 import {observer} from 'mobx-react';
 
+import Store from '../stores/Store'
+
 @observer
 class App extends Component {
-  state = {
-    lists: [],
-    cards: [],
-    checklists: [],
-  }
-
-  componentDidMount() {
-    fetch('/lists')
-      .then(res => res.json())
-      .then(lists => this.setState({ lists }));
-
-    fetch('/cards')
-      .then(res => res.json())
-      .then(cards => this.setState({ cards }));
-
-    fetch('/checklists')
-      .then(res => res.json())
-      .then(checklists => this.setState({ checklists }));
-  }
-
   render() {
     return (
       <div className="App">
         <h1>Things</h1>
-        {this.state.lists.map(list =>
+        {Store.lists.map(list =>
           <div key={list.id}>
             <h4>{list.name}</h4>
             <ul>
-              {this.state.cards
+              {Store.cards
                 .filter(card => card.idList === list.id)
                 .map(card => <div key={card.id}>
                   <li>
                     {card.name}
-                    {this.state.checklists
+                    {Store.checklists
                       .filter(checklist => checklist.idCard === card.id)
                       .map(checklist =>
                       <ul>

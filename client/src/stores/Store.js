@@ -1,24 +1,35 @@
-import { observable, action, computed, state }
+import { observable, action } from 'mobx'
 
-class Store {
-    @observable githubProjects = []
-    @state = "pending" // "pending" / "done" / "error"
+  
+export class Store {
+    @observable lists = [];
+    @observable cards = [];
+    @observable checklists = [];
+    @observable loading = true;
 
-    @action
-    fetchProjects() {
-        this.githubProjects = []
-        this.state = "pending"
-        fetchGithubProjectsSomehow().then(
-            // inline created action
-            action("fetchSuccess", projects => {
-                const filteredProjects = somePreprocessing(projects)
-                this.githubProjects = filteredProjects
-                this.state = "done"
-            }),
-            // inline created action
-            action("fetchError", error => {
-                this.state = "error"
-            })
-        )
+    constructor() {
+        this.fetch()
+    }
+
+    @action fetch() {
+        window.fetch('/lists')
+            .then(res => res.json())
+            .then(action(json => {
+                this.lists = json
+            }))
+
+            window.fetch('/cards')
+            .then(res => res.json())
+            .then(action(json => {
+                this.cards = json
+            }))
+
+            window.fetch('/checklists')
+            .then(res => res.json())
+            .then(action(json => {
+                this.checklists = json
+            }))
     }
 }
+
+export default new Store()
