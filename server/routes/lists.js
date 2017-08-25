@@ -3,15 +3,6 @@ var router = express.Router();
 
 /* GET lists listing. */
 router.get('/', function(req, res, next) {
-  var db = req.db;
-
-  var collection = db.get('listscollection');
-  collection.find({},{},function(e,docs){
-      res.render('lists', {
-          "lists" : docs
-      });
-  });
-
   res.json([{
     "id": 0,
     "name": "Inbox",

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { browserHistory } from 'react-router';
 
 import Routes from './routes';
+import Store from './stores/Store'
 
 import registerServiceWorker from './registerServiceWorker';
 
