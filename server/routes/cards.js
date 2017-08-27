@@ -5,22 +5,31 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.json([{
     "id": 0,
-    "checked": false,
+    "name": "Grand Canyon National Park",
     "notes": "",
+    "checked": false,
+    "archived": false,
     "idList": 0,
-    "name": "Grand Canyon National Park"
+    "idProject": 1,
+    "idContext": 0,
   }, {
     "id": 1,
-    "checked": false,
+    "name": "Watch TV Show",
     "notes": "Hello there",
+    "checked": false,
+    "archived": false,
     "idList": 1,
-    "name": "Watch TV Show"
+    "idProject": 0,
+    "idContext": 3,
   }, {
     "id": 2,
-    "checked": false,
+    "name": "Buy milk",
     "notes": "",
+    "checked": false,
+    "archived": false,
     "idList": 2,
-    "name": "Buy milk"
+    "idProject": null,
+    "idContext": 4,
   }]);
 });
 

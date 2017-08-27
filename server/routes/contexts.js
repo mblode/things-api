@@ -1,23 +1,22 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET lists listing. */
 router.get('/', function(req, res, next) {
   res.json([{
     "id": 0,
-    "name": "Inbox",
+    "name": "Errand",
   }, {
     "id": 1,
-    "name": "Today",
+    "name": "Home",
   }, {
     "id": 2,
-    "name": "Next",
+    "name": "Office",
   }, {
     "id": 3,
-    "name": "Later",
+    "name": "Important",
   }, {
     "id": 4,
-    "name": "Someday",
+    "name": "Pending",
   }]);
 });
 
