@@ -5,7 +5,6 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.json([{
     "id": 0,
-    "name": "Awesomeness to come",
     "idCard": 0,
     "checkItems": [
       {

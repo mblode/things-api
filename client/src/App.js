@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
-import { BrowserRouter, Route, Link, Redirect, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
 
 import Sidebar from './components/sidebar/Sidebar'
 import Footer from './components/footer/Footer'

@@ -8,7 +8,14 @@ export default class Checklist extends Component {
 
         return (
             <div className='checklist'>
-                {checklist.get('name')}
+                <ul>
+                    {checklist.get('checkItems').map((checkItem, i) => {
+                            return (
+                                <li key={i}>{checkItem.name}</li>
+                            );
+                        })
+                    }
+                </ul>
             </div>
         )
     }
